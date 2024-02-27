@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Auction Bidding</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            background: url('back5.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Form styles */
+        form {
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: black;
+        }
+
+        form input,
+        form textarea,
+        form button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        /* Message styles */
+        #message {
+            display: none;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        /* Banner styles */
+        .banner {
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        form button {
+            background-color: #4caf50; /* Green color */
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #45a049; /* Darker green color on hover */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Online Car Auction </h1>
+    </header>
+
+    <div class="banner">
+        <p>Welcome to our online auction platform. Place your bids now!</p>
+    </div>
+
+    <main>
+        <!-- Form for adding new products -->
+        <form id="addProductForm">
+            <label for="productName">Product Name:</label>
+            <input type="text" id="productName" name="productName" required>
+
+            <label for="productImage">Product Image:</label>
+            <input type="file" id="productImage" name="productImage" accept="image/*" required>
+
+            <label for="productDescription">Product Description:</label>
+            <textarea id="productDescription" name="productDescription" required></textarea>
+
+            <label for="startingBid">Starting Bid:</label>
+            <input type="number" id="startingBid" name="startingBid" required>
+
+            <button type="button" onclick="addProduct()">Add Product</button>
+        </form>
+
+        <!-- Success message display -->
+        <div id="message"></div>
+    </main>
+
+    <script>
+        function addProduct() {
+            // Get values from the form
+            var productName = document.getElementById('productName').value;
+            var productImageInput = document.getElementById('productImage');
+            var productImage = productImageInput.files[0];
+            var productDescription = document.getElementById('productDescription').value;
+            var startingBid = document.getElementById('startingBid').value;
+
+            // Validate that an image is selected
+            if (!productImage) {
+                alert('Please select an image for the product.');
+                return;
+            }
+
+            // Display success message
+            var messageElement = document.getElementById('message');
+            messageElement.innerText = 'Product has been added successfully.';
+            messageElement.style.display = 'block';
+
+            // Reset the form
+            document.getElementById('addProductForm').reset();
+
+            // Hide the success message after 3 seconds
+            setTimeout(function() {
+                messageElement.style.display = 'none';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

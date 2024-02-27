@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="signInApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('back2.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .banner {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" ng-controller="SignInController">
+        <div class="banner">
+            <h1>Sign In</h1>
+        </div>
+        <form id="signin-form" ng-submit="signIn()">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" ng-model="user.username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" ng-model="user.password" required>
+            </div>
+            <button type="submit">Sign In</button>
+        </form>
+
+        <!-- Register Now hyperlink -->
+        <p>Don't have an account? <a href="signup.html">Register Now</a></p>
+    </div>
+
+    <script>
+        var app = angular.module('signInApp', []);
+
+        app.controller('SignInController', function ($scope, $window) {
+            $scope.user = {};
+
+            $scope.signIn = function () {
+                // Assuming your username and password are "sumukh mr" and "123"
+                if ($scope.user.username === "sumukhmr2002@gmail.com" && $scope.user.password === "1234567890") {
+                    $window.location.href = "angular1.html";
+                } else {
+                    alert("Invalid username or password. Please try again.");
+                }
+
+                // Prevent the form from submitting in the traditional way
+                return false;
+            };
+        });
+    </script>
+</body>
+
+</html>

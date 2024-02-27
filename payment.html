@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            background: url('back6.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #db6c34;
+            color: #fff;
+            border-radius: 8px 8px 0 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        #successMessage {
+            color: #4caf50;
+            font-weight: bold;
+            margin-top: 10px;
+            display: none; /* Initially hide the success message */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Payment</h1>
+    </header>
+
+    <form action="#" method="post" id="paymentForm">
+        <!-- Retain email, phone, and amount fields from the previous page -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="">
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" value=">
+
+        <!-- Add the readonly attribute to make the "Amount" field uneditable -->
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" name="amount" value="" readonly>
+
+        <label for="paymentMode">Mode of Payment:</label>
+        <select id="paymentMode" name="paymentMode" required onchange="showAdditionalFields()">
+            <option value="upi">UPI</option>
+            <option value="netBanking">Net Banking</option>
+            <option value="cardPayment">Card Payment</option>
+        </select>
+
+        <!-- Additional fields for UPI, Net Banking, and Card Payment -->
+        <div id="additionalFields">
+            <!-- UPI -->
+            <div id="upiFields" style="display: none;">
+                <label for="upiPin">Enter UPI Pin:</label>
+                <input type="password" id="upiPin" name="upiPin">
+            </div>
+
+            <!-- Net Banking -->
+            <div id="netBankingFields" style="display: none;">
+                <label for="accountNo">Enter Account No:</label>
+                <input type="text" id="accountNo" name="accountNo">
+            </div>
+
+            <!-- Card Payment -->
+            <div id="cardPaymentFields" style="display: none;">
+                <label for="cvv">Enter CVV:</label>
+                <input type="password" id="cvv" name="cvv">
+            </div>
+        </div>
+
+        <input type="submit" value="Make Payment">
+
+        <!-- Display success message after payment -->
+        <p id="successMessage" style="display: none;">Payment successful!</p>
+
+        <script>
+            function showAdditionalFields() {
+                var selectedPaymentMode = document.getElementById('paymentMode').value;
+
+                // Hide all additional fields
+                document.getElementById('upiFields').style.display = 'none';
+                document.getElementById('netBankingFields').style.display = 'none';
+                document.getElementById('cardPaymentFields').style.display = 'none';
+
+                // Show additional fields based on the selected payment mode
+                if (selectedPaymentMode === 'upi') {
+                    document.getElementById('upiFields').style.display = 'block';
+                } else if (selectedPaymentMode === 'netBanking') {
+                    document.getElementById('netBankingFields').style.display = 'block';
+                } else if (selectedPaymentMode === 'cardPayment') {
+                    document.getElementById('cardPaymentFields').style.display = 'block';
+                }
+            }
+
+            // Get the values of email, phone, and amount from the URL parameters
+            var urlParams = new URLSearchParams(window.location.search);
+            var email = urlParams.get('email');
+            var phone = urlParams.get('phone');
+            var amount = urlParams.get('amount');
+
+            // Set the values in the corresponding input fields
+            document.getElementById('email').value = email;
+            document.getElementById('phone').value = phone;
+            document.getElementById('amount').value = amount;
+
+            // Handle form submission
+            document.getElementById('paymentForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent the form from submitting in the traditional way
+
+                // Your logic for handling the form submission (e.g., sending data to a server)
+
+                // Show the success message
+                document.getElementById('successMessage').style.display = 'block';
+            });
+        </script>
+    </form>
+</body>
+</html>

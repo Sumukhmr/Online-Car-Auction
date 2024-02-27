@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Online Auction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('back1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            min-height: 100vh; /* Ensure the body takes at least the full height of the viewport */
+            position: relative;
+        }
+
+        header {
+            background-color: rgba(10, 187, 226, 0.447);
+            color: #fff;
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        header button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+            margin: 0 10px;
+        }
+
+        header button:hover {
+            background-color: #555;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            margin-top: 50px;
+            color: #333; /* Dark color for text in main content */
+            min-height: 100vh; /* Ensure the main takes at least the full height of the viewport */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button.submit {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button.submit:hover {
+            background-color: green
+        }
+        button:hover{
+            background-color: green
+        }
+        header button:hover {
+    background-color: green; /* Change to green or your desired hover color */
+}
+
+
+        #thankYouMessage {
+            display: none;
+            margin-top: 20px;
+        }
+
+        footer {
+            
+            color: white;
+            text-align: center;
+            
+            padding: 20px 0;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+
+    <script>
+        function submitForm() {
+            // Assuming some form validation here
+            // For simplicity, let's just hide the form and show the thank you message
+            document.getElementById('contactForm').style.display = 'none';
+            document.getElementById('thankYouMessage').style.display = 'block';
+        }
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <h1> Online Car Auction</h1>
+        <button onclick="location.href='aboutus.html'">About Us</button>
+        <button onclick="location.href='contactus.html'">Contact Us</button>
+        <button onclick="location.href='signin.html'">Sign in</button>
+    </header>
+
+    <main>
+        <section>
+            <h2>Welcome to Online Car Auction!</h2>
+            <p>Discover a wide selection of high-quality, pre-owned cars at our online auction. We bring together buyers and sellers in a seamless platform, providing a secure and efficient way to buy or sell your vehicle.</p>
+        </section>
+
+        <section>
+            <h2>Why Choose Us?</h2>
+            <ul>
+                <li>Wide Range of Vehicles: Explore a diverse inventory of cars, including sedans, SUVs, trucks, and more.</li>
+                <li>Secure Bidding Process: Our auction platform ensures a secure and transparent bidding process for both buyers and sellers.</li>
+                <li>Quality Assurance: Each listed vehicle undergoes a thorough inspection to ensure its quality and reliability.</li>
+                <li>Convenient Online Experience: Bid from the comfort of your home or on the go. Our user-friendly interface makes the process easy.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>How It Works</h2>
+            <ol>
+                <li>Sign Up: Create an account to get started. It's quick and easy.</li>
+                <li>Explore Listings: Browse through our extensive listings and find the car that suits your preferences.</li>
+                <li>Place Your Bid: Enter your bid for the vehicle you're interested</li>
+                <li>Place Your Bid: Enter your bid for the vehicle you're interested in. Keep an eye on the bidding process.</li>
+                <li>Winning Bid: If your bid is the highest when the auction ends, congratulations! You've won the vehicle.</li>
+                <li>Payment and Delivery: Complete the payment process, and arrange for the delivery of your new car.</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Upcoming Auctions</h2>
+            <p>Stay tuned for our upcoming auctions featuring exclusive deals on a variety of vehicles. Don't miss out on the chance to find your dream car at a great price!</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Car Online Auction | All Rights Reserved</p>
+    </footer>
+
+</body>
+
+</html>
